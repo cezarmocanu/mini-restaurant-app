@@ -34,8 +34,9 @@
         - idOrder
     - Order
         - id
+        - idTable
         - status(NEW, IN_PROGRESS, DONE)
-        - idWorkspace(the
+        - idWorkspace
     - Workspace
         - id
         - name
