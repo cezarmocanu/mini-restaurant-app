@@ -1,6 +1,7 @@
 import 'package:kitchen_it/employee.dart';
 import 'package:kitchen_it/menu.dart';
 import 'package:kitchen_it/product.dart';
+import 'package:kitchen_it/table.dart';
 
 void main() {
   List<Product> mainProductList = [];
@@ -101,5 +102,34 @@ void main() {
   print("Angajatii firmei sunt:");
   for (Employee e in employeeList) {
     print('${e.id} ${e.firstName} ${e.lastName}');
+  }
+
+  List<Table> tableList = [];
+
+  Table table1 = Table(
+    id: 0,
+    name: "terasa1",
+  );
+
+  Table table2 = Table(
+    id: 1,
+    name: "interior1",
+  );
+
+  Table table3 = Table(
+    id: 2,
+    name: "interior2",
+  );
+
+  tableList.addAll([
+    table1,
+    table2,
+    table3,
+  ]);
+
+  print("Mese disponibile:");
+
+  for (Table t in tableList) {
+    print(t.name);
   }
 }
