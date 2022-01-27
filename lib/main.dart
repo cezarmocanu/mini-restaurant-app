@@ -1,3 +1,4 @@
+import 'package:kitchen_it/employee.dart';
 import 'package:kitchen_it/menu.dart';
 import 'package:kitchen_it/product.dart';
 
@@ -69,5 +70,36 @@ void main() {
     for (Product p in m.productList) {
       print('${p.name} ${p.price} ${p.discount}');
     }
+  }
+
+  List<Employee> employeeList = [];
+
+  Employee employee1 = Employee(
+    id: 0,
+    firstName: "Daniel",
+    lastName: "Zanoaga",
+  );
+
+  Employee employee2 = Employee(
+    id: 1,
+    firstName: "Alin",
+    lastName: "Balint",
+  );
+
+  Employee employee3 = Employee(
+    id: 2,
+    firstName: "Augustin",
+    lastName: "Vatra",
+  );
+
+  employeeList.addAll([
+    employee1,
+    employee2,
+    employee3,
+  ]);
+
+  print("Angajatii firmei sunt:");
+  for (Employee e in employeeList) {
+    print('${e.id} ${e.firstName} ${e.lastName}');
   }
 }
