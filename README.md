@@ -17,6 +17,7 @@
         - id
         - price
         - name
+        - workspace
     - Menu
         - id,
         - productList,
@@ -31,12 +32,13 @@
     - OrderItem
         - id
         - idProduct
-        - idOrder
+        - order
     - Order
         - id
         - idTable
         - status(NEW, IN_PROGRESS, DONE)
-        - idWorkspace
+        - createdTime
+        - preparedTime
     - Workspace
         - id
         - name
