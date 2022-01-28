@@ -1,4 +1,4 @@
-import 'package:kitchen_it/product.dart';
+import 'package:kitchen_it/model/product.dart';
 
 class Menu {
   int id;
