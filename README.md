@@ -43,6 +43,7 @@
         - id
         - name
 
+### Inheritance
 ```dart
 class Animal {
   int legs;
