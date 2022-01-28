@@ -48,6 +48,19 @@ void main() {
     drinkProduct2,
   ]);
 
+  List<Product> desertProductList = [];
+
+  Product desertProduct1 = Product(
+    id: 0,
+    price: 12,
+    name: "Tiramisu",
+  );
+  Product desertProduct2 = Product(
+    id: 1,
+    price: 14,
+    name: "Lava cake",
+  );
+
   List<Menu> menusList = [];
 
   Menu mainMenu = Menu(
@@ -62,9 +75,21 @@ void main() {
     productList: drinkProductList,
   );
 
+  Menu desertMenu = Menu(
+    id: 2,
+    name: "Meniu desert",
+    productList: desertProductList,
+  );
+
+  desertProductList.addAll([
+    desertProduct1,
+    desertProduct2,
+  ]);
+
   menusList.addAll([
     mainMenu,
     drinkMenu,
+    desertMenu,
   ]);
 
   for (Menu m in menusList) {
