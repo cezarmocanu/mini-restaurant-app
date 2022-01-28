@@ -82,7 +82,7 @@ class Parrot extends Animal {
   makeSound(){
     print("Craaaaa");
   }
-}a
+}
 
 void whatSoundDoesThisMake(Animal a) {
   a.makeSound();
