@@ -42,3 +42,58 @@
     - Workspace
         - id
         - name
+
+```dart
+class Animal {
+  int legs;
+  
+  Animal({
+    required this.legs,
+  });
+  
+  makeSound(){
+    print("Animal Sound");
+  }
+}
+
+class Cat extends Animal {
+  Cat() : super(legs : 4);
+
+  @override
+  makeSound(){
+    print("Meowwww");
+  }
+}
+
+class Dog extends Animal {
+  Dog() : super(legs : 4);
+  
+  @override
+  makeSound(){
+    print("Bark Bark");
+  }
+}
+
+class Parrot extends Animal {
+  Parrot() : super(legs : 2);
+    
+  @override
+  makeSound(){
+    print("Craaaaa");
+  }
+}a
+
+void whatSoundDoesThisMake(Animal a) {
+  a.makeSound();
+}
+
+main() {
+ 
+  Cat c = Cat();
+  Dog d = Dog();
+  Parrot p = Parrot();
+  
+  whatSoundDoesThisMake(c);
+}
+
+```
