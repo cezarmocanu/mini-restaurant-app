@@ -2,6 +2,7 @@ import 'package:kitchen_it/employee.dart';
 import 'package:kitchen_it/menu.dart';
 import 'package:kitchen_it/product.dart';
 import 'package:kitchen_it/table.dart';
+import 'package:kitchen_it/workspace.dart';
 
 void main() {
   List<Product> mainProductList = [];
@@ -132,4 +133,27 @@ void main() {
   for (Table t in tableList) {
     print(t.name);
   }
+
+  List<Workspace> workspaceList = [];
+
+  Workspace workspace1 = Workspace(
+    id: 0,
+    name: "Bucatarie principala",
+  );
+
+  Workspace workspace2 = Workspace(
+    id: 1,
+    name: "Bar",
+  );
+
+  Workspace workspace3 = Workspace(
+    id: 2,
+    name: "Bucatarie desert",
+  );
+
+  workspaceList.addAll([
+    workspace1,
+    workspace2,
+    workspace3,
+  ]);
 }
