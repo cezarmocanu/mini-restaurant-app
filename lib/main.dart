@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kitchen_it/pages/home_page.dart';
+import 'package:kitchen_it/pages/login_page.dart';
 import 'package:kitchen_it/pages/menu_page.dart';
 import 'package:kitchen_it/pages/tables_page.dart';
 import 'package:kitchen_it/pages/workspaces_page.dart';
@@ -20,6 +21,9 @@ void main() {
         },
         "/tables": (BuildContext context) {
           return TablesPage();
+        },
+        "/login": (BuildContext context) {
+          return LoginPage();
         }
       },
     ),

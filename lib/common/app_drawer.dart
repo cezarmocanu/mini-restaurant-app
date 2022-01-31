@@ -54,6 +54,18 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
+          ElevatedButton(
+            child: Text("Go to login page"),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                "/login",
+                (route) {
+                  return false;
+                },
+              );
+            },
+          ),
         ],
       ),
     );
