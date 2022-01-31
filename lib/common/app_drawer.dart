@@ -66,6 +66,18 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
+          ElevatedButton(
+            child: Text("Go to profile page"),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                "/profile",
+                (route) {
+                  return false;
+                },
+              );
+            },
+          ),
         ],
       ),
     );
