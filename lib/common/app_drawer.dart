@@ -42,6 +42,18 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
+          ElevatedButton(
+            child: Text("Go to tables page"),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                "/tables",
+                (route) {
+                  return false;
+                },
+              );
+            },
+          ),
         ],
       ),
     );
