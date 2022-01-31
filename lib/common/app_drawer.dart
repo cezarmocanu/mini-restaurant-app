@@ -30,6 +30,18 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
+          ElevatedButton(
+            child: Text("Go to workspaces page"),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                "/workspaces",
+                (route) {
+                  return false;
+                },
+              );
+            },
+          ),
         ],
       ),
     );
