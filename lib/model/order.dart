@@ -2,12 +2,14 @@ class Order {
   int id;
   int idTable;
   String status;
-  int idWorkspace;
+  DateTime dateTime;
+  DateTime preparedTime;
 
   Order({
     required this.id,
     required this.idTable,
     required this.status,
-    required this.idWorkspace,
+    required this.dateTime,
+    required this.preparedTime,
   });
 }
