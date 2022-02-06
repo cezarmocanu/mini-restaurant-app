@@ -1,17 +1,21 @@
-class WorkspaceRepo {
+class MenuRepo {
   static List<Map<String, dynamic>> getAll() {
     return [
       {
         "id": 0,
-        "name": 'Main Kitchen',
+        "name": "Special Offers",
       },
       {
         "id": 1,
-        "name": 'Bar',
+        "name": "Main Course",
       },
       {
         "id": 2,
-        "name": 'Deserts Kitchen',
+        "name": "Drinks",
+      },
+      {
+        "id": 3,
+        "name": "Deserts",
       }
     ];
   }
