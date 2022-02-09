@@ -54,8 +54,7 @@ class ProductService {
   //iau fiecare element si il compar cu maximul daca va fi mai mare decat maximul curent, va deveni maximul
   //dupa ce trec prin toata lista, si compar fiecare element in parte, afisez maximul
 
-  static void getCheaperThanXProducts(double limitPrice) {
-    List<Map<String, dynamic>> productList = ProductRepo.getAll();
+  static getCheaperThanXProducts(List<Map<String, dynamic>> productList, double limitPrice) {
     List<Map<String, dynamic>> productCheaper = [];
 
     for (Map<String, dynamic> product in productList) {
@@ -64,7 +63,9 @@ class ProductService {
       }
     }
 
-    if (productCheaper.length > 1) {
+    return productCheaper;
+
+    if (productCheaper.length > 0) {
       print("Lista este:");
       for (Map<String, dynamic> product in productCheaper) {
         print("${product["name"]} : ${product["price"]}");
@@ -81,7 +82,7 @@ class ProductService {
   //afisam lista la final
   //daca lista este mai lunga de 1, vom afisa elementul/elementele daca este goala vom afisa lista goala
 
-  static void getExpensiveThanXProducts(double lowerLimit) {
+  static getExpensiveThanXProducts(double lowerLimit) {
     List<Map<String, dynamic>> productList = ProductRepo.getAll();
     List<Map<String, dynamic>> productCheaper = [];
 
@@ -91,10 +92,11 @@ class ProductService {
       }
     }
 
-    if (productCheaper.length > 1) {
+    if (productCheaper.length > 0) {
       print("Lista este:");
       for (Map<String, dynamic> product in productCheaper) {
         print("${product["name"]} : ${product["price"]}");
+        return productCheaper;
       }
     } else {
       print("Nu exista produse mai scumpe de ${lowerLimit} lei");
@@ -107,4 +109,23 @@ class ProductService {
 //daca este, copiem elementul(map ul) in lista
 //afisam lista la final
 //daca lista este mai lunga de 1, vom afisa elementul/elementele daca este goala vom afisa lista goala
+
+  static getBetweenXandYProduct(List<Map<String, dynamic>> producList, double upperLimit, double lowerLimit) {
+    List<Map<String, dynamic>> productBetween = [];
+
+    for (Map<String, dynamic> product in producList) {
+      if (product["price"] < upperLimit && product["price"] > lowerLimit) {
+        productBetween.add(product);
+      }
+    }
+
+    if (productBetween.length > 0) {
+      print("Lista este:");
+      for (Map<String, dynamic> product in productBetween) {
+        print("${product["name"]} : ${product["price"]}");
+      }
+    } else {
+      print("Nu exista produse mai scumpe decat ${lowerLimit} si ${upperLimit}");
+    }
+  }
 }
