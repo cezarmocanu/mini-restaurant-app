@@ -8,7 +8,7 @@ class ProductService {
     }
   }
 
-  static void allProductCheaperThan(double price) {
+  static allProductCheaperThan(double price) {
     List<Map<String, dynamic>> productList = ProductRepo.getAll();
     for (Map<String, dynamic> product in productList) {
       if (product["price"] < price) {
@@ -17,7 +17,7 @@ class ProductService {
     }
   }
 
-  static void getCheapestProduct() {
+  static getCheapestProduct() {
     List<Map<String, dynamic>> productList = ProductRepo.getAll();
     Map<String, dynamic> cheapestProduct = productList[0];
     for (Map<String, dynamic> product in productList) {
@@ -25,7 +25,7 @@ class ProductService {
         cheapestProduct = product;
       }
     }
-    print("${cheapestProduct["name"]} : ${cheapestProduct["price"]}");
+    return cheapestProduct;
   }
 
   //static void getCheapestProduct(){
@@ -45,7 +45,6 @@ class ProductService {
         theMostExpensive = product;
       }
     }
-    print("The most expensive product is: ${theMostExpensive["name"]} : ${theMostExpensive["price"]}");
     return theMostExpensive;
   }
   //copiez lista initiala in lista pe care o creez
@@ -64,15 +63,6 @@ class ProductService {
     }
 
     return productCheaper;
-
-    if (productCheaper.length > 0) {
-      print("Lista este:");
-      for (Map<String, dynamic> product in productCheaper) {
-        print("${product["name"]} : ${product["price"]}");
-      }
-    } else {
-      print("Nu exista produse mai ieftine de ${limitPrice} lei");
-    }
   }
   //copiez lista initiala intr o lista creata
   //cream o instanta a unei variabile pentru a impune un pret
@@ -82,25 +72,15 @@ class ProductService {
   //afisam lista la final
   //daca lista este mai lunga de 1, vom afisa elementul/elementele daca este goala vom afisa lista goala
 
-  static getExpensiveThanXProducts(double lowerLimit) {
-    List<Map<String, dynamic>> productList = ProductRepo.getAll();
-    List<Map<String, dynamic>> productCheaper = [];
+  static getExpensiveThanXProducts(List<Map<String, dynamic>> productList, double lowerLimit) {
+    List<Map<String, dynamic>> productExpensive = [];
 
     for (Map<String, dynamic> product in productList) {
       if (product["price"] > lowerLimit) {
-        productCheaper.add(product);
+        productExpensive.add(product);
       }
     }
-
-    if (productCheaper.length > 0) {
-      print("Lista este:");
-      for (Map<String, dynamic> product in productCheaper) {
-        print("${product["name"]} : ${product["price"]}");
-        return productCheaper;
-      }
-    } else {
-      print("Nu exista produse mai scumpe de ${lowerLimit} lei");
-    }
+    return productExpensive;
   }
 //copiez lista initiala intr o lista creata
 //cream o instanta a unei variabile pentru a impune un pret
