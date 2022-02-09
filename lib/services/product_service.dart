@@ -99,10 +99,26 @@ class ProductService {
 
     return productBetween;
   }
-}
 //functie statica cu parametrii precum o lista de date, limita inferioara de pret si lim. sup.
 //creeam lista noastra de maps, goala initial
 //trecem prin fiecare element al listei noastre de date
 //supunem fiecare element unei conditii pentru a vedea daca poate sau nu sa intre in lista noastra
 //daca da il adaugam in lista
+//returnam lista
+
+  static getProductWorkspace(List<Map<String, dynamic>> productList, int workspaceId) {
+    List<Map<String, dynamic>> productFrom = [];
+
+    for (Map<String, dynamic> product in productList) {
+      if (product["workspaceId"] == workspaceId) {
+        productFrom.add(product);
+      }
+    }
+    return productFrom;
+  }
+}
+//creeam o functie statica cu parametrii fiind o lista de date si un workspaceId
+//creeam o lista auxiliara in care vom salva produsele care indeplinesc criteriul
+//trecem prin lista cu ajutorul unui produs fictiv care va copia toate produsele din lista initiala
+//verificam conditia, air daca o indeplineste il copiem in lista
 //returnam lista

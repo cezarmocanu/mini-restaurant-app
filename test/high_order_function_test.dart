@@ -137,76 +137,136 @@ void main() {
   // });
   //ProductService.getExpensiveThanXProducts(49.9);
 
-  test("Should give us back a list that have products with price between 2 parameters", () {
+  // test("Should give us back a list that have products with price between 2 parameters", () {
+  //   List<Map<String, dynamic>> testData = [
+  //     {
+  //       "id": 20,
+  //       "price": 18.0,
+  //       "name": "Brioche À Tête",
+  //       "workspaceId": 2,
+  //       "menuId": 3,
+  //     },
+  //     {
+  //       "id": 21,
+  //       "price": 30.0,
+  //       "name": "Super Quatro Formagi",
+  //       "workspaceId": 0,
+  //       "menuId": 0,
+  //     },
+  //     {
+  //       "id": 22,
+  //       "price": 50.0,
+  //       "name": "Heavy Burger Family",
+  //       "workspaceId": 0,
+  //       "menuId": 0,
+  //     },
+  //     {
+  //       "id": 23,
+  //       "price": 44.0,
+  //       "name": "10 Party Shots",
+  //       "workspaceId": 1,
+  //       "menuId": 0,
+  //     },
+  //   ];
+  //
+  //   List<Map<String, dynamic>> actualResult = ProductService.getBetweenXandYProduct(testData, 19.0, 45.0);
+  //   expect(actualResult.length, 2);
+  //   expect(actualResult[0]["id"], 21);
+  //   expect(actualResult[1]["id"], 23);
+  // });
+  //
+  // test("Should give us back a list that have products with price between 2 parameters", () {
+  //   List<Map<String, dynamic>> testData = [
+  //     {
+  //       "id": 20,
+  //       "price": 18.0,
+  //       "name": "Brioche À Tête",
+  //       "workspaceId": 2,
+  //       "menuId": 3,
+  //     },
+  //     {
+  //       "id": 21,
+  //       "price": 30.0,
+  //       "name": "Super Quatro Formagi",
+  //       "workspaceId": 0,
+  //       "menuId": 0,
+  //     },
+  //     {
+  //       "id": 22,
+  //       "price": 50.0,
+  //       "name": "Heavy Burger Family",
+  //       "workspaceId": 0,
+  //       "menuId": 0,
+  //     },
+  //     {
+  //       "id": 23,
+  //       "price": 44.0,
+  //       "name": "10 Party Shots",
+  //       "workspaceId": 1,
+  //       "menuId": 0,
+  //     },
+  //   ];
+  //   List<Map<String, dynamic>> actualResult = ProductService.getBetweenXandYProduct(testData, 10.0, 15.0);
+  //   expect(actualResult.length, 0);
+  // });
+
+  test("Should test if the mock data has the same workspaceid", () {
     List<Map<String, dynamic>> testData = [
       {
-        "id": 20,
-        "price": 18.0,
-        "name": "Brioche À Tête",
-        "workspaceId": 2,
-        "menuId": 3,
-      },
-      {
-        "id": 21,
-        "price": 30.0,
-        "name": "Super Quatro Formagi",
+        "id": 6,
+        "price": 5.0,
+        "name": "French Fries",
         "workspaceId": 0,
-        "menuId": 0,
+        "menuId": 1,
       },
       {
-        "id": 22,
-        "price": 50.0,
-        "name": "Heavy Burger Family",
-        "workspaceId": 0,
-        "menuId": 0,
-      },
-      {
-        "id": 23,
-        "price": 44.0,
-        "name": "10 Party Shots",
+        "id": 14,
+        "price": 13.0,
+        "name": "Ice Frappe",
         "workspaceId": 1,
-        "menuId": 0,
+        "menuId": 2,
+      },
+      {
+        "id": 15,
+        "price": 18.0,
+        "name": "Marshmallow Vanilla Caffe",
+        "workspaceId": 1,
+        "menuId": 2,
       },
     ];
 
-    List<Map<String, dynamic>> actualResult = ProductService.getBetweenXandYProduct(testData, 19.0, 45.0);
+    List<Map<String, dynamic>> actualResult = ProductService.getProductWorkspace(testData, 1);
     expect(actualResult.length, 2);
-    expect(actualResult[0]["id"], 21);
-    expect(actualResult[1]["id"], 23);
+    expect(actualResult[0]["id"], 14);
+    expect(actualResult[1]["id"], 15);
   });
 
-  test("Should give us back a list that have products with price between 2 parameters", () {
+  test("Should test if the mock data has the same workspaceid", () {
     List<Map<String, dynamic>> testData = [
       {
-        "id": 20,
-        "price": 18.0,
-        "name": "Brioche À Tête",
-        "workspaceId": 2,
-        "menuId": 3,
-      },
-      {
-        "id": 21,
-        "price": 30.0,
-        "name": "Super Quatro Formagi",
+        "id": 6,
+        "price": 5.0,
+        "name": "French Fries",
         "workspaceId": 0,
-        "menuId": 0,
+        "menuId": 1,
       },
       {
-        "id": 22,
-        "price": 50.0,
-        "name": "Heavy Burger Family",
-        "workspaceId": 0,
-        "menuId": 0,
-      },
-      {
-        "id": 23,
-        "price": 44.0,
-        "name": "10 Party Shots",
+        "id": 14,
+        "price": 13.0,
+        "name": "Ice Frappe",
         "workspaceId": 1,
-        "menuId": 0,
+        "menuId": 2,
+      },
+      {
+        "id": 15,
+        "price": 18.0,
+        "name": "Marshmallow Vanilla Caffe",
+        "workspaceId": 1,
+        "menuId": 2,
       },
     ];
-    List<Map<String, dynamic>> actualResult = ProductService.getBetweenXandYProduct(testData, 10.0, 15.0);
+
+    List<Map<String, dynamic>> actualResult = ProductService.getProductWorkspace(testData, 2);
     expect(actualResult.length, 0);
   });
 }
