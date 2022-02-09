@@ -210,8 +210,75 @@ void main() {
   //   expect(actualResult.length, 0);
   // });
 
-  test("Should test if the mock data has the same workspaceid", () {
+  // test("Should test if the mock data has the same workspaceid", () {
+  //   List<Map<String, dynamic>> testData = [
+  //     {
+  //       "id": 6,
+  //       "price": 5.0,
+  //       "name": "French Fries",
+  //       "workspaceId": 0,
+  //       "menuId": 1,
+  //     },
+  //     {
+  //       "id": 14,
+  //       "price": 13.0,
+  //       "name": "Ice Frappe",
+  //       "workspaceId": 1,
+  //       "menuId": 2,
+  //     },
+  //     {
+  //       "id": 15,
+  //       "price": 18.0,
+  //       "name": "Marshmallow Vanilla Caffe",
+  //       "workspaceId": 1,
+  //       "menuId": 2,
+  //     },
+  //   ];
+  //
+  //   List<Map<String, dynamic>> actualResult = ProductService.getProductWorkspace(testData, 1);
+  //   expect(actualResult.length, 2);
+  //   expect(actualResult[0]["id"], 14);
+  //   expect(actualResult[1]["id"], 15);
+  // });
+  //
+  // test("Should test if the mock data has the same workspaceid", () {
+  //   List<Map<String, dynamic>> testData = [
+  //     {
+  //       "id": 6,
+  //       "price": 5.0,
+  //       "name": "French Fries",
+  //       "workspaceId": 0,
+  //       "menuId": 1,
+  //     },
+  //     {
+  //       "id": 14,
+  //       "price": 13.0,
+  //       "name": "Ice Frappe",
+  //       "workspaceId": 1,
+  //       "menuId": 2,
+  //     },
+  //     {
+  //       "id": 15,
+  //       "price": 18.0,
+  //       "name": "Marshmallow Vanilla Caffe",
+  //       "workspaceId": 1,
+  //       "menuId": 2,
+  //     },
+  //   ];
+  //
+  //   List<Map<String, dynamic>> actualResult = ProductService.getProductWorkspace(testData, 2);
+  //   expect(actualResult.length, 0);
+  // });
+
+  test("Should show us all the products of a menu", () {
     List<Map<String, dynamic>> testData = [
+      {
+        "id": 5,
+        "price": 7.0,
+        "name": "Baked Potato",
+        "workspaceId": 0,
+        "menuId": 1,
+      },
       {
         "id": 6,
         "price": 5.0,
@@ -220,29 +287,29 @@ void main() {
         "menuId": 1,
       },
       {
-        "id": 14,
-        "price": 13.0,
-        "name": "Ice Frappe",
-        "workspaceId": 1,
-        "menuId": 2,
-      },
-      {
-        "id": 15,
-        "price": 18.0,
-        "name": "Marshmallow Vanilla Caffe",
+        "id": 7,
+        "price": 12.0,
+        "name": "Sunny Tea",
         "workspaceId": 1,
         "menuId": 2,
       },
     ];
 
-    List<Map<String, dynamic>> actualResult = ProductService.getProductWorkspace(testData, 1);
+    List<Map<String, dynamic>> actualResult = ProductService.getProductMenu(testData, 1);
     expect(actualResult.length, 2);
-    expect(actualResult[0]["id"], 14);
-    expect(actualResult[1]["id"], 15);
+    expect(actualResult[0]["id"], 5);
+    expect(actualResult[1]["id"], 6);
   });
 
-  test("Should test if the mock data has the same workspaceid", () {
+  test("Should show us all the products of a menu", () {
     List<Map<String, dynamic>> testData = [
+      {
+        "id": 5,
+        "price": 7.0,
+        "name": "Baked Potato",
+        "workspaceId": 0,
+        "menuId": 1,
+      },
       {
         "id": 6,
         "price": 5.0,
@@ -251,22 +318,15 @@ void main() {
         "menuId": 1,
       },
       {
-        "id": 14,
-        "price": 13.0,
-        "name": "Ice Frappe",
-        "workspaceId": 1,
-        "menuId": 2,
-      },
-      {
-        "id": 15,
-        "price": 18.0,
-        "name": "Marshmallow Vanilla Caffe",
+        "id": 7,
+        "price": 12.0,
+        "name": "Sunny Tea",
         "workspaceId": 1,
         "menuId": 2,
       },
     ];
 
-    List<Map<String, dynamic>> actualResult = ProductService.getProductWorkspace(testData, 2);
+    List<Map<String, dynamic>> actualResult = ProductService.getProductMenu(testData, 3);
     expect(actualResult.length, 0);
   });
 }

@@ -107,18 +107,35 @@ class ProductService {
 //returnam lista
 
   static getProductWorkspace(List<Map<String, dynamic>> productList, int workspaceId) {
-    List<Map<String, dynamic>> productFrom = [];
+    List<Map<String, dynamic>> productFromWorkSpace = [];
 
     for (Map<String, dynamic> product in productList) {
       if (product["workspaceId"] == workspaceId) {
-        productFrom.add(product);
+        productFromWorkSpace.add(product);
       }
     }
-    return productFrom;
+    return productFromWorkSpace;
   }
-}
 //creeam o functie statica cu parametrii fiind o lista de date si un workspaceId
 //creeam o lista auxiliara in care vom salva produsele care indeplinesc criteriul
 //trecem prin lista cu ajutorul unui produs fictiv care va copia toate produsele din lista initiala
 //verificam conditia, air daca o indeplineste il copiem in lista
 //returnam lista
+
+  static getProductMenu(List<Map<String, dynamic>> productList, int menuId) {
+    List<Map<String, dynamic>> productFromMenu = [];
+
+    for (Map<String, dynamic> product in productList) {
+      if (product["menuId"] == menuId) {
+        productFromMenu.add(product);
+      }
+    }
+    return productFromMenu;
+  }
+}
+//we initialize a function depends of 2 parameters, a list of products and a menuId
+//second we ll create an auxiliary list
+//inside a for we ll copy each product from our first list
+//we ll check for each product if verify the requierment
+//if the answear is yes, we ll add the element in our auxiliary list
+//in the final we return the aux list
