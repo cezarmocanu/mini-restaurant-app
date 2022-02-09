@@ -132,10 +132,25 @@ class ProductService {
     }
     return productFromMenu;
   }
-}
 //we initialize a function depends of 2 parameters, a list of products and a menuId
 //second we ll create an auxiliary list
 //inside a for we ll copy each product from our first list
 //we ll check for each product if verify the requierment
 //if the answear is yes, we ll add the element in our auxiliary list
 //in the final we return the aux list
+
+  static getTheCheapestProduct(List<Map<String, dynamic>> productList) {
+    Map<String, dynamic> cheapest = productList[0];
+    for (Map<String, dynamic> product in productList) {
+      if (cheapest["price"] > product["price"]) {
+        cheapest = product;
+      }
+    }
+    return cheapest;
+  }
+}
+//am creat o functie cu un singur parametru (lista)
+//am creat un map auxiliar din primul element al listei
+//am trecut prin toate elementele listei, cu conditia ca daca este mai mic decat map ul
+//auxiliar, acesta ii copiaza datele si devine cel mai mic, momentan
+//la final returnam minimul
