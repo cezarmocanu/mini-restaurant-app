@@ -51,7 +51,7 @@ class ProductService {
   //primul va deveni maximul
   //trec prin toata lista
   //iau fiecare element si il compar cu maximul daca va fi mai mare decat maximul curent, va deveni maximul
-  //dupa ce trec prin toata lista, si compar fiecare element in parte, afisez maximul
+  //dupa ce trec prin toata lista, si compar fiecare element in parte, returnez maximul
 
   static getCheaperThanXProducts(List<Map<String, dynamic>> productList, double limitPrice) {
     List<Map<String, dynamic>> productCheaper = [];
@@ -69,8 +69,7 @@ class ProductService {
   //cream o lista in care vom copia elementele listei initiale care sar de pretul limita
   //trecem prin lista, element cu element, verificam daca indeplineste conditia
   //daca este, copiem elementul(map ul) in lista
-  //afisam lista la final
-  //daca lista este mai lunga de 1, vom afisa elementul/elementele daca este goala vom afisa lista goala
+  //returnam lista la final
 
   static getExpensiveThanXProducts(List<Map<String, dynamic>> productList, double lowerLimit) {
     List<Map<String, dynamic>> productExpensive = [];
@@ -87,10 +86,9 @@ class ProductService {
 //cream o lista in care vom copia elementele listei initiale care sunt sub pretul limita
 //trecem prin lista, element cu element, verificam daca indeplineste conditia
 //daca este, copiem elementul(map ul) in lista
-//afisam lista la final
-//daca lista este mai lunga de 1, vom afisa elementul/elementele daca este goala vom afisa lista goala
+//returnam lista la final
 
-  static getBetweenXandYProduct(List<Map<String, dynamic>> producList, double upperLimit, double lowerLimit) {
+  static getBetweenXandYProduct(List<Map<String, dynamic>> producList, double lowerLimit, double upperLimit) {
     List<Map<String, dynamic>> productBetween = [];
 
     for (Map<String, dynamic> product in producList) {
@@ -99,13 +97,12 @@ class ProductService {
       }
     }
 
-    if (productBetween.length > 0) {
-      print("Lista este:");
-      for (Map<String, dynamic> product in productBetween) {
-        print("${product["name"]} : ${product["price"]}");
-      }
-    } else {
-      print("Nu exista produse mai scumpe decat ${lowerLimit} si ${upperLimit}");
-    }
+    return productBetween;
   }
 }
+//functie statica cu parametrii precum o lista de date, limita inferioara de pret si lim. sup.
+//creeam lista noastra de maps, goala initial
+//trecem prin fiecare element al listei noastre de date
+//supunem fiecare element unei conditii pentru a vedea daca poate sau nu sa intre in lista noastra
+//daca da il adaugam in lista
+//returnam lista
