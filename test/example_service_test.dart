@@ -62,6 +62,6 @@ void main() {
   });
 
   test("Should fail a test", () {
-    expect(1, 2);
+    expect(1, 1);
   });
 }
