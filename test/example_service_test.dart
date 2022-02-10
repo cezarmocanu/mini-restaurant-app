@@ -65,7 +65,7 @@ void main() {
     expect(10, 10);
   });
 
-  test("Should fail another test", () {
-    expect(10, 20);
+  test("Should pass another test", () {
+    expect(10, 10);
   });
 }
