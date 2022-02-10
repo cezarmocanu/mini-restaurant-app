@@ -84,4 +84,74 @@ void main() {
     expect(productsInOrder.length, orderItems.length);
     expect(productsInOrder.length, 8);
   });
+
+  test("Should compute all squares form the array with for loop", () {
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+
+    List<int> squares = [];
+
+    for (int number in numbers) {
+      squares.add(number * number);
+    }
+
+    expect(squares, [1, 4, 9, 16, 25, 36]);
+  });
+
+  test("Should compute all squares form the array with map hof", () {
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+    List<int> squares = numbers.map((number) => number * number).toList();
+
+    expect(squares, [1, 4, 9, 16, 25, 36]);
+  });
+
+  //
+  test("Should compute all even squares form the array with for loop", () {
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+
+    List<int> squares = [];
+
+    for (int number in numbers) {
+      int square = number * number;
+
+      if (square % 2 == 0) {
+        squares.add(square);
+      }
+    }
+
+    print(squares);
+    expect(squares, [4, 16, 36]);
+  });
+
+  test("Should compute all even squares form the array with map hof", () {
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+    List<int> squares = numbers.map((number) => number * number).where((number) => number % 2 == 0).toList();
+
+    expect(squares, [4, 16, 36]);
+  });
+
+  //
+  test("Should compute sum of all even squares form the array with for loop", () {
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+    List<int> squares = [];
+
+    for (int number in numbers) {
+      int square = number * number;
+
+      if (square % 2 == 0) {
+        squares.add(square);
+      }
+    }
+    int sum = 0;
+    for (int square in squares) {
+      sum += square;
+    }
+    expect(sum, 56);
+  });
+
+  test("Should compute sum of all even squares form the array with map hof", () {
+    List<int> numbers = [1, 2, 3, 4, 5, 6];
+    int sum = numbers.map((number) => number * number).where((number) => number % 2 == 0).fold(0, (total, number) => total + number);
+
+    expect(sum, 56);
+  });
 }
