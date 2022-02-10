@@ -60,4 +60,8 @@ void main() {
     //We expect that the example method correctly returns two elements
     expect(actualResult.length, 0);
   });
+
+  test("Should fail a test", () {
+    expect(1, 2);
+  });
 }
