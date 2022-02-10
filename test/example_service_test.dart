@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kitchen_it/service/example_service.dart';
+import 'package:kitchen_it/services/example_service.dart';
 
 void main() {
   test("Should correctly return the first two elements of the array", () {
