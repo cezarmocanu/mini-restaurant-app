@@ -1,5 +1,13 @@
+import 'dart:collection';
+
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kitchen_it/service/example_service.dart';
+import 'package:kitchen_it/model/order.dart';
+import 'package:kitchen_it/repo_mock/employee_repo.dart';
+import 'package:kitchen_it/repo_mock/order_item_repo.dart';
+import 'package:kitchen_it/repo_mock/order_repo.dart';
+import 'package:kitchen_it/repo_mock/product_repo.dart';
+import 'package:kitchen_it/repo_mock/table_repo.dart';
+import 'package:kitchen_it/services/example_service.dart';
 
 void main() {
   test("Should correctly return the first two elements of the array", () {
@@ -61,11 +69,19 @@ void main() {
     expect(actualResult.length, 0);
   });
 
-  test("Should pass a test", () {
-    expect(10, 10);
+  test("Should find 8 order items in for the first order", () {
+    Map<String, dynamic> order = OrderRepo.getAll()[0];
+    List<Map<String, dynamic>> orderItems = OrderItemRepo.getAll().where((orderItem) => orderItem["orderId"] == order["id"]).toList();
+    expect(orderItems.length, 8);
   });
 
-  test("Should pass another test", () {
-    expect(10, 10);
+  test("Should find 8 products in the first order", () {
+    Map<String, dynamic> order = OrderRepo.getAll()[0];
+    List<Map<String, dynamic>> orderItems = OrderItemRepo.getAll().where((orderItem) => orderItem["orderId"] == order["id"]).toList();
+    List<Map<String, dynamic>> products = ProductRepo.getAll();
+    List<Map<String, dynamic>> productsInOrder = orderItems.map((orderItem) => products.firstWhere((product) => product["id"] == orderItem["productId"])).toList();
+
+    expect(productsInOrder.length, orderItems.length);
+    expect(productsInOrder.length, 8);
   });
 }

@@ -6,10 +6,6 @@ class TableRepo {
         "name": "Terasa 1",
       },
       {
-        "id": 0,
-        "name": "Terasa 1",
-      },
-      {
         "id": 1,
         "name": "Terasa 2",
       },
