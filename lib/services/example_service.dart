@@ -10,6 +10,9 @@ class ExampleService {
 
     List<Map<String, dynamic>> result = [];
 
+    //add first element
+    result.add(productList[0]);
+
     //add second element
     result.add(productList[1]);
 
