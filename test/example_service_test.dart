@@ -61,7 +61,7 @@ void main() {
     expect(actualResult.length, 0);
   });
 
-  test("Should fail a test", () {
-    expect(1, 1);
+  test("Should pass a test", () {
+    expect(10, 10);
   });
 }
