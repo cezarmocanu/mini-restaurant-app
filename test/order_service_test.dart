@@ -32,7 +32,7 @@ void main() {
       }
     ];
 
-    List<Map<String, dynamic>> actualResult = OrderService.getOrderProducts(testOrder, testProducts);
+    List<Map<String, dynamic>> actualResult = OrderService.getOrderItemsOfOrder(testOrder, testProducts);
     expect(actualResult.length, 2);
     expect(actualResult[0]["id"], 0);
     expect(actualResult[1]["id"], 2);
@@ -68,7 +68,43 @@ void main() {
       }
     ];
 
-    List<Map<String, dynamic>> actualResult = OrderService.getOrderProducts(testOrder, testProducts);
+    List<Map<String, dynamic>> actualResult = OrderService.getOrderItemsOfOrder(testOrder, testProducts);
     expect(actualResult.length, 0);
+  });
+
+  test("Should return a map where idProduct is the same as itemOrderId = 6", () {
+    Map<String, dynamic> testOrderItem = {
+      "id": 4,
+      "orderId": 64,
+      "productId": 6,
+      "quantity": 5,
+    };
+
+    List<Map<String, dynamic>> testProducts = [
+      {
+        "id": 5,
+        "price": 7.0,
+        "name": "Baked Potato",
+        "workspaceId": 0,
+        "menuId": 1,
+      },
+      {
+        "id": 6,
+        "price": 5.0,
+        "name": "French Fries",
+        "workspaceId": 0,
+        "menuId": 1,
+      },
+      {
+        "id": 7,
+        "price": 12.0,
+        "name": "Sunny Tea",
+        "workspaceId": 1,
+        "menuId": 2,
+      }
+    ];
+
+    Map<String, dynamic> actualResult = OrderService.getProductOrderItem(testOrderItem, testProducts);
+    expect(actualResult["id"], 6);
   });
 }
