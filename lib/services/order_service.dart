@@ -2,8 +2,8 @@ class OrderService {
   static List<Map<String, dynamic>> getOrderItemsOfOrder(Map<String, dynamic> order, List<Map<String, dynamic>> orderItems) {
     List<Map<String, dynamic>> orderProducts = [];
 
-    for (Map<String, dynamic> product in orderItems) {
-      if (product["orderId"] == order["id"]) orderProducts.add(product);
+    for (Map<String, dynamic> item in orderItems) {
+      if (item["orderId"] == order["id"]) orderProducts.add(item);
     }
     return orderProducts;
   }
@@ -15,5 +15,12 @@ class OrderService {
       if (product["id"] == orderItem["productId"]) orderProduct = product;
     }
     return orderProduct;
+  }
+
+  static List<Map<String, dynamic>> getProductsFromOrder(List<Map<String, dynamic>> orderItems, Map<String, dynamic> order, List<Map<String, dynamic>> products) {
+    List<Map<String, dynamic>> Items = getOrderItemsOfOrder(order, orderItems);
+    List<Map<String, dynamic>> orderProducts = [];
+    for (Map<String, dynamic> item in Items) orderProducts.add(getProductOrderItem(item, products));
+    return orderProducts;
   }
 }
