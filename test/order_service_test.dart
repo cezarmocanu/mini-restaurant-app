@@ -104,7 +104,7 @@ void main() {
       }
     ];
 
-    Map<String, dynamic> actualResult = OrderService.getProductOrderItem(testOrderItem, testProducts);
+    Map<String, dynamic> actualResult = OrderService.getProductOfOrderItem(testOrderItem, testProducts);
     expect(actualResult["id"], 6);
   });
 
@@ -165,5 +165,62 @@ void main() {
     expect(actualResult.length, 2);
     expect(actualResult[0]["id"], 5);
     expect(actualResult[1]["id"], 23);
+  });
+
+  test("Should return totalPrice of products that belongs to order Id 76", () {
+    Map<String, dynamic> testOrder = {
+      "id": 76,
+      "idTable": 2,
+      "status": "DONE",
+      "createdTime": 1644500432764,
+      "preparedTime": 1644501812764,
+    };
+
+    List<Map<String, dynamic>> testOrderItems = [
+      {
+        "id": 0,
+        "orderId": 76,
+        "productId": 5,
+        "quantity": 1,
+      },
+      {
+        "id": 1,
+        "orderId": 94,
+        "productId": 20,
+        "quantity": 5,
+      },
+      {
+        "id": 2,
+        "orderId": 76,
+        "productId": 23,
+        "quantity": 9,
+      }
+    ];
+
+    List<Map<String, dynamic>> testProducts = [
+      {
+        "id": 5,
+        "price": 7.0,
+        "name": "Baked Potato",
+        "workspaceId": 0,
+        "menuId": 1,
+      },
+      {
+        "id": 6,
+        "price": 5.0,
+        "name": "French Fries",
+        "workspaceId": 0,
+        "menuId": 1,
+      },
+      {
+        "id": 23,
+        "price": 12.0,
+        "name": "Sunny Tea",
+        "workspaceId": 1,
+        "menuId": 2,
+      }
+    ];
+    double actualResult = OrderService.getTotalPriceOrder(testOrderItems, testOrder, testProducts);
+    expect(actualResult, 115.0);
   });
 }
