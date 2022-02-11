@@ -46,4 +46,14 @@ class OrderService {
   static double getAveragePriceOfOrders(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> products) {
     return getTotalPriceOfOrders(orderItems, orders, products) / orders.length;
   }
+
+  static Map<String, dynamic> getHighestPriceOrder(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> products) {
+    Map<String, dynamic> highestOrderPrice = orders[0];
+    for (Map<String, dynamic> order in orders) {
+      if (getPriceOfOrder(orderItems, highestOrderPrice, products) < getPriceOfOrder(orderItems, order, products)) {
+        highestOrderPrice = order;
+      }
+    }
+    return highestOrderPrice;
+  }
 }
