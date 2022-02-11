@@ -33,6 +33,7 @@
         - id
         - idProduct
         - order
+        - itemCount
     - Order
         - id
         - idTable
