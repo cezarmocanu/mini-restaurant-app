@@ -56,4 +56,14 @@ class OrderService {
     }
     return highestOrderPrice;
   }
+
+  static Map<String, dynamic> getLowestPriceOrder(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> products) {
+    Map<String, dynamic> lowestOrderPrice = orders[0];
+    for (Map<String, dynamic> order in orders) {
+      if (getPriceOfOrder(orderItems, lowestOrderPrice, products) > getPriceOfOrder(orderItems, order, products)) {
+        lowestOrderPrice = order;
+      }
+    }
+    return lowestOrderPrice;
+  }
 }
