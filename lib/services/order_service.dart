@@ -26,12 +26,20 @@ class OrderService {
     return orderProducts;
   }
 
-  static double getTotalPriceOrder(List<Map<String, dynamic>> orderItems, Map<String, dynamic> order, List<Map<String, dynamic>> products) {
+  static double getPriceOfOrder(List<Map<String, dynamic>> orderItems, Map<String, dynamic> order, List<Map<String, dynamic>> products) {
     List<Map<String, dynamic>> items = getOrderItemsOfOrder(order, orderItems);
-    double totalPrice = 0.0;
+    double orderPrice = 0.0;
     for (Map<String, dynamic> item in items) {
-      totalPrice += item["quantity"] * getProductOfOrderItem(item, products)["price"];
+      orderPrice += item["quantity"] * getProductOfOrderItem(item, products)["price"];
     }
-    return totalPrice;
+    return orderPrice;
+  }
+
+  static double getTotalPriceOfOrders(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> products) {
+    double totalOrdersPrice = 0.0;
+    for (Map<String, dynamic> order in orders) {
+      totalOrdersPrice += getPriceOfOrder(orderItems, order, products);
+    }
+    return totalOrdersPrice;
   }
 }
