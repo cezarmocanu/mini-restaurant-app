@@ -42,4 +42,8 @@ class OrderService {
     }
     return totalOrdersPrice;
   }
+
+  static double getAveragePriceOfOrders(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> products) {
+    return getTotalPriceOfOrders(orderItems, orders, products) / orders.length;
+  }
 }
