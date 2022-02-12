@@ -66,4 +66,14 @@ class OrderService {
     }
     return lowestOrderPrice;
   }
+
+  static List<Map<String, dynamic>> getOrdersOfTable(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, Map<String, dynamic> table) {
+    List<Map<String, dynamic>> ordersTable = [];
+    for (Map<String, dynamic> order in orders) {
+      if (table["id"] == order["idTable"]) {
+        ordersTable = (getOrderItemsOfOrder(order, orderItems));
+      }
+    }
+    return ordersTable;
+  }
 }

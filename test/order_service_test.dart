@@ -487,4 +487,54 @@ void main() {
     Map<String, dynamic> actualResult = OrderService.getLowestPriceOrder(testOrderItems, testOrders, testProducts);
     expect(actualResult["id"], 77);
   });
+
+  test("Should return a list with all orders from table 2", () {
+    List<Map<String, dynamic>> testOrders = [
+      {
+        "id": 76,
+        "idTable": 2,
+        "status": "DONE",
+        "createdTime": 1644500432764,
+        "preparedTime": 1644501812764,
+      },
+      {
+        "id": 77,
+        "idTable": 7,
+        "status": "NEW",
+        "createdTime": 1644500432764,
+        "preparedTime": null,
+      }
+    ];
+
+    List<Map<String, dynamic>> testOrderItems = [
+      {
+        "id": 0,
+        "orderId": 76,
+        "productId": 5,
+        "quantity": 1,
+      },
+      {
+        "id": 1,
+        "orderId": 77,
+        "productId": 6,
+        "quantity": 5,
+      },
+      {
+        "id": 2,
+        "orderId": 76,
+        "productId": 23,
+        "quantity": 9,
+      }
+    ];
+
+    Map<String, dynamic> testTable = {
+      "id": 2,
+      "name": "Terasa 3",
+    };
+
+    List<Map<String, dynamic>> actualResult = OrderService.getOrdersOfTable(testOrderItems, testOrders, testTable);
+    expect(actualResult.length, 2);
+    expect(actualResult[0]["id"], 0);
+    expect(actualResult[1]["id"], 2);
+  });
 }
