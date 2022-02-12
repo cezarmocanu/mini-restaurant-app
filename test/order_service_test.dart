@@ -537,4 +537,59 @@ void main() {
     expect(actualResult[0]["id"], 0);
     expect(actualResult[1]["id"], 2);
   });
+
+  test("Should return a list of lists and elements for each one are idTable and number of orders", () {
+    List<Map<String, dynamic>> testOrders = [
+      {
+        "id": 76,
+        "idTable": 2,
+        "status": "DONE",
+        "createdTime": 1644500432764,
+        "preparedTime": 1644501812764,
+      },
+      {
+        "id": 77,
+        "idTable": 7,
+        "status": "NEW",
+        "createdTime": 1644500432764,
+        "preparedTime": null,
+      }
+    ];
+
+    List<Map<String, dynamic>> testOrderItems = [
+      {
+        "id": 0,
+        "orderId": 76,
+        "productId": 5,
+        "quantity": 1,
+      },
+      {
+        "id": 1,
+        "orderId": 77,
+        "productId": 6,
+        "quantity": 5,
+      },
+      {
+        "id": 2,
+        "orderId": 76,
+        "productId": 23,
+        "quantity": 9,
+      }
+    ];
+
+    List<Map<String, dynamic>> testTables = [
+      {
+        "id": 2,
+        "name": "Terasa 3",
+      },
+      {
+        "id": 7,
+        "name": "Interior 3",
+      }
+    ];
+    List<List<int>> actualResult = OrderService.getAllOrdersOfTables(testOrderItems, testOrders, testTables);
+    expect(actualResult[0], [2, 2]);
+    expect(actualResult[1], [7, 1]);
+    expect(actualResult.length, 2);
+  });
 }

@@ -76,4 +76,15 @@ class OrderService {
     }
     return ordersTable;
   }
+
+  static List<List<int>> getAllOrdersOfTables(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> tables) {
+    List<List<int>> result = [];
+    for (Map<String, dynamic> table in tables) {
+      List<int> subResult = [];
+      subResult.add(table["id"]);
+      subResult.add(getOrdersOfTable(orderItems, orders, table).length);
+      result.add(subResult);
+    }
+    return result;
+  }
 }
