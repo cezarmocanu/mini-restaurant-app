@@ -113,4 +113,26 @@ class OrderService {
     }
     return idTable;
   }
+
+  static List<List<dynamic>> getNumbersOfOrdersStatus(List<Map<String, dynamic>> orders) {
+    List<dynamic> doneStatus = ["DONE", 0];
+    List<dynamic> inProgressStatus = ["IN_PROGRESS", 0];
+    List<dynamic> newStatus = ["NEW", 0];
+    List<List<dynamic>> allStatus = [];
+    for (Map<String, dynamic> order in orders) {
+      if (order["status"] == doneStatus[0]) {
+        doneStatus[1] += 1;
+      } else {
+        if (order["status"] == newStatus[0]) {
+          newStatus[1] += 1;
+        } else {
+          inProgressStatus[1] += 1;
+        }
+      }
+    }
+    allStatus.add(doneStatus);
+    allStatus.add(inProgressStatus);
+    allStatus.add(newStatus);
+    return allStatus;
+  }
 }

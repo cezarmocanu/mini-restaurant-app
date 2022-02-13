@@ -698,4 +698,49 @@ void main() {
     int actualResult = OrderService.getTableWithLeastOrders(testOrderItems, testOrders, testTables);
     expect(actualResult, 7);
   });
+
+  test("Should return a list with lists of status of orders and number of them", () {
+    List<Map<String, dynamic>> testOrders = [
+      {
+        "id": 82,
+        "idTable": 1,
+        "status": "DONE",
+        "createdTime": 1644500972764,
+        "preparedTime": 1644501392764,
+      },
+      {
+        "id": 83,
+        "idTable": 2,
+        "status": "NEW",
+        "createdTime": 1644500372764,
+        "preparedTime": null,
+      },
+      {
+        "id": 84,
+        "idTable": 8,
+        "status": "NEW",
+        "createdTime": 1644500852764,
+        "preparedTime": null,
+      },
+      {
+        "id": 85,
+        "idTable": 0,
+        "status": "IN_PROGRESS",
+        "createdTime": 1644500672764,
+        "preparedTime": null,
+      },
+      {
+        "id": 86,
+        "idTable": 5,
+        "status": "NEW",
+        "createdTime": 1644501092764,
+        "preparedTime": null,
+      }
+    ];
+    List<List<dynamic>> actualResult = OrderService.getNumbersOfOrdersStatus(testOrders);
+    expect(actualResult.length, 3);
+    expect(actualResult[0][1], 1);
+    expect(actualResult[1][1], 1);
+    expect(actualResult[2][1], 3);
+  });
 }
