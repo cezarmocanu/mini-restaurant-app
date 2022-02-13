@@ -100,4 +100,17 @@ class OrderService {
     }
     return idTable;
   }
+
+  static int getTableWithLeastOrders(List<Map<String, dynamic>> orderItems, List<Map<String, dynamic>> orders, List<Map<String, dynamic>> tables) {
+    int minimumOrders = getAllOrdersOfTables(orderItems, orders, tables)[0][1];
+    int idTable = getAllOrdersOfTables(orderItems, orders, tables)[0][0];
+    List<List<int>> tablesOrders = getAllOrdersOfTables(orderItems, orders, tables);
+    for (List<int> table in tablesOrders) {
+      if (minimumOrders > table[1]) {
+        minimumOrders = table[1];
+        idTable = table[0];
+      }
+    }
+    return idTable;
+  }
 }
