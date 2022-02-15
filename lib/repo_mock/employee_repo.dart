@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 class EmployeeRepo {
-  static List<Map<String, dynamic>> getAll() {
-    return [
+  static String getAll() {
+    return json.encode([
       {
         "id": 0,
         "firstName": "Andrei",
@@ -16,21 +18,6 @@ class EmployeeRepo {
         "firstName": "Clara",
         "lastName": "Nitu",
       },
-      {
-        "id": 3,
-        "firstName": "Vlad",
-        "lastName": "Ercu",
-      },
-      {
-        "id": 4,
-        "firstName": "Diana",
-        "lastName": "Pastor",
-      },
-      {
-        "id": 5,
-        "firstName": "Stefan",
-        "lastName": "Vladau",
-      },
-    ];
+    ]);
   }
 }

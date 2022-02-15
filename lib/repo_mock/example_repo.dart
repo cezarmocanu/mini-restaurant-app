@@ -1,24 +1,23 @@
 import 'dart:convert';
 
-class MenuRepo {
+class ExampleRepo {
   static String getAll() {
     return json.encode([
       {
         "id": 0,
-        "name": "Special Offers",
+        "name": "Example 1",
+        "isActive": true,
       },
       {
         "id": 1,
-        "name": "Main Course",
+        "name": "Example 2",
+        "isActive": false,
       },
       {
         "id": 2,
-        "name": "Drinks",
+        "name": "Example 2",
+        "isActive": false,
       },
-      {
-        "id": 3,
-        "name": "Deserts",
-      }
     ]);
   }
 }
