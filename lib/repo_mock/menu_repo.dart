@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 class MenuRepo {
-  static List<Map<String, dynamic>> getAll() {
-    return [
+  static String getAll() {
+    return json.encode([
       {
         "id": 0,
         "name": "Special Offers",
@@ -17,6 +19,6 @@ class MenuRepo {
         "id": 3,
         "name": "Deserts",
       }
-    ];
+    ]);
   }
 }
