@@ -1,8 +1,10 @@
 import 'dart:collection';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kitchen_it/model/example.dart';
 import 'package:kitchen_it/model/order.dart';
 import 'package:kitchen_it/repo_mock/employee_repo.dart';
+import 'package:kitchen_it/repo_mock/example_repo.dart';
 import 'package:kitchen_it/repo_mock/order_item_repo.dart';
 import 'package:kitchen_it/repo_mock/order_repo.dart';
 import 'package:kitchen_it/repo_mock/product_repo.dart';
@@ -153,5 +155,29 @@ void main() {
     int sum = numbers.map((number) => number * number).where((number) => number % 2 == 0).fold(0, (total, number) => total + number);
 
     expect(sum, 56);
+  });
+
+  test("Should deserialize examples to a map", () {
+    String examplesString = ExampleRepo.getAll();
+    List<Example> expected = [
+      Example(
+        id: 0,
+        name: "Example 1",
+        isActive: true,
+      ),
+      Example(
+        id: 1,
+        name: "Example 2",
+        isActive: false,
+      ),
+      Example(
+        id: 2,
+        name: "Example 3",
+        isActive: false,
+      ),
+    ];
+    for (int i = 0; i < expected.length; i++) {
+      expect(ExampleService.fromString(examplesString).elementAt(i).id, expected.elementAt(i).id);
+    }
   });
 }
