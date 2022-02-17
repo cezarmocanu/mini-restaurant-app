@@ -8,4 +8,12 @@ class Employee {
     required this.firstName,
     required this.lastName,
   });
+
+  factory Employee.fromJson(Map<String, dynamic> json) {
+    return Employee(
+      id: json["id"],
+      firstName: json["firstName"],
+      lastName: json["lastName"],
+    );
+  }
 }
