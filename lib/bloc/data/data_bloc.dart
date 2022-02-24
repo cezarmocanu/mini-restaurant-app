@@ -7,17 +7,25 @@ import 'package:kitchen_it/bloc/data/data_state.dart';
 class DataBloc extends Bloc<DataEvent, DataState> {
   Random random = Random();
   DataBloc() : super(DataInitial()) {
-    on<StartDataLoad>(_onStartDataLoad);
+    on<GetData>(_onGetData);
   }
 
-  _onStartDataLoad(event, emit) async {
+  _onGetData(GetData event, emit) async {
     emit(DataLoading());
+
+    //response =  await EmployeeService.getAll()  -> Response
+
+    //if response.status == 200
+    //   employeeList = (json.decode(response.body) as List).map((json) => Employee.fromJson(json)).toList()
+    //   emit(DataSuccess(employeeList))
+    //else
+    //   emit(DataError(response.status))
 
     await Future.delayed(Duration(seconds: 1));
     if (random.nextInt(100) < 20) {
-      emit(DataError());
+      emit(DataError(random.nextInt(100) + 400));
     } else {
-      emit(DataSuccess());
+      emit(DataSuccess(event.name));
     }
   }
 }
