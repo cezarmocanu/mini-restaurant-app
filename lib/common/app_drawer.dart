@@ -7,6 +7,18 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: [
           ElevatedButton(
+            child: Text("Data Page"),
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                "/data",
+                (route) {
+                  return false;
+                },
+              );
+            },
+          ),
+          ElevatedButton(
             child: Text("Go to menu page"),
             onPressed: () {
               Navigator.pushNamedAndRemoveUntil(
