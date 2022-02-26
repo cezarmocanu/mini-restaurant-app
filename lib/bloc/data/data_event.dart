@@ -1,3 +1,7 @@
 abstract class DataEvent {}
 
-class StartDataLoad extends DataEvent {}
+class GetData extends DataEvent {
+  final String name;
+
+  GetData(this.name);
+}

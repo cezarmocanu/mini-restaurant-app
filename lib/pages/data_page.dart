@@ -26,15 +26,16 @@ class DataPage extends StatelessWidget {
                   );
                 }
 
+                //type GUARD
                 if (state is DataSuccess) {
                   return Center(
-                    child: Text("Data loaded successfully"),
+                    child: Text("Data loaded ${state.name}"),
                   );
                 }
 
                 if (state is DataError) {
                   return Center(
-                    child: Text("Data did not load correctly"),
+                    child: Text("Data did not load error ${state.errorCode}"),
                   );
                 }
 
@@ -45,9 +46,21 @@ class DataPage extends StatelessWidget {
             ),
             const SizedBox(height: 100),
             ElevatedButton(
-              child: Text("Load Data"),
+              child: Text("Load Data for Cezar"),
               onPressed: () {
-                context.read<DataBloc>().add(StartDataLoad());
+                context.read<DataBloc>().add(GetData("Cezar"));
+              },
+            ),
+            ElevatedButton(
+              child: Text("Load Data for Coste"),
+              onPressed: () {
+                context.read<DataBloc>().add(GetData("Coste"));
+              },
+            ),
+            ElevatedButton(
+              child: Text("Load Data for Marian"),
+              onPressed: () {
+                context.read<DataBloc>().add(GetData("Marian"));
               },
             ),
           ],
