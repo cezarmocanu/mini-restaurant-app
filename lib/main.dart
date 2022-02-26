@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kitchen_it/bloc/data/data_bloc.dart';
+import 'package:kitchen_it/bloc/icon/icon_bloc.dart';
 import 'package:kitchen_it/pages/data_page.dart';
 import 'package:kitchen_it/pages/home_page.dart';
 import 'package:kitchen_it/pages/login_page.dart';
@@ -30,7 +31,12 @@ void main() {
           return LoginPage();
         },
         "/profile": (BuildContext context) {
-          return ProfilePage();
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider<IconBloc>(create: (BuildContext context) => IconBloc()),
+            ],
+            child: ProfilePage(),
+          );
         },
         "/data": (BuildContext context) {
           return MultiBlocProvider(
