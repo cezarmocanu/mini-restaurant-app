@@ -1,6 +1,6 @@
 # Restaurant
 
-### Maria owns a restaurant that increasingly becomes more popular.
+
 ### She is looking to improve her services through an IT solution.
 ### She is thinking about a KDS(Kitchen Display System) that enables her and her waiters to send an order directly to the appropriate workspace.
 ### She organised her restaurant using the following workspaces:
